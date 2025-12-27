@@ -451,18 +451,10 @@ default_image_number = get_config_item_or_set_default(
     validator=lambda x: isinstance(x, int) and 1 <= x <= default_max_image_number,
     expected_type=int
 )
-checkpoint_downloads = get_config_item_or_set_default(
-    key='checkpoint_downloads',
-    default_value={},
-    validator=lambda x: isinstance(x, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in x.items()),
-    expected_type=dict
-)
-lora_downloads = get_config_item_or_set_default(
-    key='lora_downloads',
-    default_value={},
-    validator=lambda x: isinstance(x, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in x.items()),
-    expected_type=dict
-)
+
+checkpoint_downloads = {}
+lora_downloads = {}
+
 embeddings_downloads = get_config_item_or_set_default(
     key='embeddings_downloads',
     default_value={},
